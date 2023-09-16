@@ -1,0 +1,44 @@
+{% load static %}
+
+<!-- ======= Products Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Products</h2>
+        <p>Assorted products just for you</p>
+      </div>
+      {% for product, range, nSlides in allProducts %}
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+            <h4>{{product.0.category}} Flashsale</h4>
+            </ul>
+        </div>
+        </div>
+
+        {% for i in product %}
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="/media/{{i.image}}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>{{i.product_name}}</h4>
+              <p>{{i.desc|slice:"0:15"}}...</p>
+              <h4>Price: ${{i.price}}</h4>
+              <div class="portfolio-links">
+                <a href="/media/{{i.image}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                <button class="btn btn-success cart btn-sm mt-0">Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+    {% endfor %}
+      {% endfor %}
+
+    </div>
+  </section><!-- End Product Section -->
